@@ -10,13 +10,14 @@ np.random.shuffle(X)
 Y = 0.5 * X +2 + np.random.normal(0,0.05,(200, ))
 # plot data
 plt.scatter(X,Y)
-plt.show()
+# plt.show()
 
 model = Sequential()
 model.add(Dense(output_dim=1,input_dim=1))
 model.compile(loss='mse',optimizer='sgd')
 
 X_train = X[:150]
+print (len(X_train))
 Y_train = Y[:150]
 X_test = X[150:]
 Y_test = Y[150:]
@@ -29,7 +30,7 @@ for step in range(301):
 
 #  test
 print ('\nTesting--------------')
-cost = model.evaluate(X_test,X_train,batch_size=40)
+cost = model.evaluate(X_test,Y_test)
 print ('test cost',cost)
 
 W,b = model.layers[0].get_weights()
@@ -41,3 +42,6 @@ Y_pred = model.predict(X_test)
 plt.scatter(X_test,Y_test)
 plt.plot(X_test,Y_pred)
 plt.show()
+
+
+print ('test')
