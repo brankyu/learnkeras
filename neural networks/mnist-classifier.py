@@ -26,7 +26,7 @@ model = Sequential([
 rmsprop = RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
 
 # activation the model
-model.compile(optimizer=rmsprop,loss='categorical_crossentropy',
+model.compile(optimizer=rmsprop, loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 # train model
